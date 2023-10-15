@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab5</title>
+</head>
+<body>
+  <h1>1.</h1>
+    <div>
+        <p>a) x = 7 + 3 * 6 / 2 - 1;</p>
+        <p id="resultA"></p>
+    </div>
+
+    <div>
+        <p>b) x = 2 % 2 + 2 * 2 - 2 / 2;</p>
+        <p id="resultB"></p>
+    </div>
+
+    <div>
+        <p>c) x = (3 * 9 * (3 + (9 * 3 / 3)));</p>
+        <p id="resultC"></p>
+    </div>
+
+    <script>
+       
+        var xA = 7 + (3 * 6 / 2) - 1;
+        document.getElementById("resultA").textContent = "Result: " + xA;
+
+       
+        var xB = 2 % 2 + 2 * 2 - 2 / 2;
+        document.getElementById("resultB").textContent = "Result: " + xB;
+
+        
+        var xC = (3 * 9 * (3 + (9 * 3 / 3)));
+        document.getElementById("resultC").textContent = "Result: " + xC;
+    </script>
+    <h1>2.</h1>
+    <script>
+        document.writeln("1 ");
+        document.writeln("2 ");
+        document.writeln("3 ");
+        document.writeln("4 ");
+    </script>
+    <h1>3.</h1>
+
+    <form id="calculator-form">
+        <label for="num1">эхний тоог : </label>
+        <input type="number" id="num1" required><br>
+
+        <label for="num2">дараагын тоог оруул: </label>
+        <input type="number" id="num2" required><br>
+
+        <input type="submit" value="Calculate">
+    </form>
+
+    <p id="results"></p>
+
+    <script>
+        document.getElementById("calculator-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+
+            var sum = num1 + num2;
+            var product = num1 * num2;
+            var difference = num1 - num2;
+            var division = num1 / num2;
+
+            var resultText = "Нэмэх: " + sum + "<br>";
+            resultText += "Үржих: " + product + "<br>";
+            resultText += "Хасах: " + difference + "<br>";
+            resultText += "Хуваах: " + division + "<br>";
+
+            document.getElementById("results").innerHTML = resultText;
+        });
+    </script>
+     <h1>4.</h1>
+
+    <form id="budget-form">
+        <label for="income">Сарын орлогыг оруулна уу:</label>
+        <input type="number" id="income" required><br>
+
+        <h2>Өдөр бүрийн зардлыг оруулна уу (10 хүртэл хоног)</h2>
+
+        <div id="expenses-container">
+            
+        </div>
+
+        <input type="submit" value="Calculate">
+    </form>
+
+    <p id="results"></p>
+
+    <script>
+        document.getElementById("budget-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var income = parseFloat(document.getElementById("income").value);
+            var totalExpenses = 0;
+            var days = 0;
+
+            for (var i = 1; i <= 10; i++) {
+                var expense = parseFloat(document.getElementById("day" + i).value);
+                if (!isNaN(expense)) {
+                    totalExpenses += expense;
+                    days++;
+                }
+            }
+
+            var balance = income - totalExpenses;
+            var averageDailyExpense = totalExpenses / days;
+
+            var resultText = "Total Balance: $" + balance + "<br>";
+            resultText += "Average Daily Expense: $" + averageDailyExpense.toFixed(2) + "<br>";
+
+            document.getElementById("results").innerHTML = resultText;
+        });
+        for (var i = 1; i <= 10; i++) {
+            var input = document.createElement("input");
+            input.type = "number";
+            input.id = "day" + i;
+            input.placeholder = "Day " + i + " Expenses";
+            document.getElementById("expenses-container").appendChild(input);
+        }
+    </script>
+     <h1>5.</h1>
+
+    <p>Долоо хоногт ажилласан цагийн тоог оруулна уу:</p>
+    <input type="number" id="hoursWorked" required><br>
+
+    <p>Тогтмол цагийн цагийн үнийг оруулна уу:</p>
+    <input type="number" id="hourlyRate" required><br>
+
+    <p>Илүү цагийн хуваарийг оруулна уу (жишээ нь: 1.5 цаг хагасын хувьд):</p>
+    <input type="number" id="overtimeRate" required><br>
+
+    <input type="submit" value="Calculate Salary" onclick="calculateSalary()">
+
+    <p id="result"></p>
+
+    <script>
+        function calculateSalary() {
+            var hoursWorked = parseFloat(document.getElementById("hoursWorked").value);
+            var hourlyRate = parseFloat(document.getElementById("hourlyRate").value);
+            var overtimeRate = parseFloat(document.getElementById("overtimeRate").value);
+            var salary = 0;
+
+            if (hoursWorked <= 40) {
+                salary = hoursWorked * hourlyRate;
+            } else {
+                var regularHours = 40;
+                var overtimeHours = hoursWorked - regularHours;
+                salary = (regularHours * hourlyRate) + (overtimeHours * hourlyRate * overtimeRate);
+            }
+
+            document.getElementById("result").innerHTML = "Employee Salary: $" + salary.toFixed(2);
+        }
+    </script>
+</body>
+</html>
