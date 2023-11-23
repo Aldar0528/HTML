@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Суурь өнгийг өөрчлөх</title>
+  <style>
+    body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  transition: background-color 0.3s; /* Өөрчлөгдсөн өнгийг харуулах үед анимаци хийх */
+}
+
+#clickMeButton {
+  padding: 15px 30px;
+  font-size: 18px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<strong><p><a href="index.html">1dasgal</a></p>
+  <p><a href="send.html"> 2dasgal</a></p>
+  <p><a href="tooluur.html">3dasgal</a></p></strong>
+  <button id="clickMeButton" onclick="changeColor()">Дар!</button>
+
+  <script>
+    function changeColor() {
+  var randomColor = getRandomColor();
+  document.body.style.backgroundColor = randomColor;
+  console.log("Суурь өнгийг өөрчлөх:", randomColor);
+}
+
+function getRandomColor() {
+  var letters = "0123456789ABCDEF";
+  var color = "#";
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+  </script>
+</body>
+</html>

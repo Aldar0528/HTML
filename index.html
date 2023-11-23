@@ -1,27 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Онцлох үгс</title>
+  <style>
+    body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#showTextButton {
+  padding: 15px 30px;
+  font-size: 18px;
+  cursor: pointer;
+}
+</style>
 </head>
 <body bgcolor="yellow">
-	<h1>Миний веб сайтад тавтай морил</h1>
-	<a href="index.html">Нүүр хуудас</a>
-	"_"
-	<a href="hobby.html">Миний хобби</a>
-	"_"
-	<a href="family.html">Миний гэр бүл</a>
-	"_"
-	<a href="achievement.html">Миний амжилт</a>
-	"_"
-	<a href="contact.html">Холбоо барих</a>
- <hr>
- <p>
- 	<img src="C:\Users\dell\Desktop\hello.png">
- </p>
+  <button id="showTextButton" onclick="showText()">Онцлох үгс</button>
 
- <p>
- 	Сайн байна уу?<br>
-	Намайг Мөнх-Алдар гэдэг.Би одоо 21 настай.Монгол улсын их сургуульд сурдаг.2 түвшний оюутан байна.</p>
+  <script>
+    function showText() {
+  var textContainer = document.createElement("div");
+  textContainer.innerHTML = "Онцлох үгс: <code>моноспэйс</code>!";
+  document.body.appendChild(textContainer);
+}
+</script>
 </body>
 </html>

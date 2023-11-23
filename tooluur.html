@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter</title>
+  <style>
+    /* styles.css */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  text-align: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body bgcolor="brown">
+  <div class="container">
+    <h1>Counter</h1>
+    <div>
+      <p id="counterDisplay">Count: 0</p>
+      <button onclick="addCount()">Add Count</button>
+      <button onclick="lowerCount()">Lower Count</button>
+    </div>
+  </div>
+
+  <script>
+    // script.js
+var counter = 0;
+
+function updateCounterDisplay() {
+  document.getElementById("counterDisplay").innerHTML = "Count:" + counter;
+}
+
+function addCount() {
+  counter++;
+  updateCounterDisplay();
+}
+
+function lowerCount() {
+  if (counter > 0) {
+    counter--;
+    updateCounterDisplay();
+  }
+}
+
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Илгээх Форм</title>
+  <style>
+    /* styles.css */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  text-align: center;
+}
+
+form {
+  margin-top: 20px;
+}
+
+textarea {
+  width: 100%;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body bgcolor="purple">
+  <div class="container">
+    <h1>Илгээх Форм</h1>
+    <form id="messageForm">
+      <label for="userMessage">Таны илгээх мессэж:</label>
+      <textarea id="userMessage" name="userMessage" rows="4" cols="50"></textarea>
+      <button type="button" onclick="sendMessage()">Илгээх</button>
+    </form>
+    <div id="lastMessage"></div>
+  </div>
+
+  <script>
+    // script.js
+function sendMessage() {
+  var userMessage = document.getElementById("userMessage").value;
+  document.getElementById("lastMessage").innerHTML = "сүүлд илгээсэн мессэж: " + userMessage;
+}
+
+  </script>
+</body>
+</html>
+
